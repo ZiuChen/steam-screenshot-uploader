@@ -1,0 +1,3 @@
+[submodule "refs/SteaScree"]
+	path = refs/SteaScree
+	url = git@github.com:awthwathje/SteaScree.git
