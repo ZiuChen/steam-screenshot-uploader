@@ -1,6 +1,6 @@
 {
   "name": "steam-screenshot-uploader",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Upload custom screenshots to Steam Cloud via CLI",
   "license": "MIT",
   "bin": {
