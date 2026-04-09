@@ -14,6 +14,13 @@
     ".": "./dist/bin.mjs",
     "./package.json": "./package.json"
   },
+  "keywords": [
+    "steam",
+    "screenshot",
+    "uploader",
+    "cli",
+    "command-line"
+  ],
   "scripts": {
     "dev": "vp exec tsx src/bin.ts",
     "build": "vp pack src/bin.ts -d dist --format esm",
@@ -35,5 +42,16 @@
     "typescript": "^6.0.2",
     "vite-plus": "^0.1.14"
   },
-  "packageManager": "pnpm@10.33.0"
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ZiuChen/steam-screenshot-uploader.git"
+  }
 }
