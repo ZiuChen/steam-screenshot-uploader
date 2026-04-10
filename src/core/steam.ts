@@ -47,10 +47,9 @@ export function listUserDirs(userDataDir: string): string[] {
     .map((d) => d.name);
 }
 
-export function findVdfPath(userDataDir: string, userId: string): string | null {
+export function findVdfPath(userDataDir: string, userId: string): string {
   // The VDF file is at <userdata>/<userId>/760/remote/screenshots.vdf
-  const vdfPath = join(userDataDir, userId, "760", "remote", "screenshots.vdf");
-  return existsSync(vdfPath) ? vdfPath : null;
+  return join(userDataDir, userId, "760", "remote", "screenshots.vdf");
 }
 
 export function getScreenshotsDir(userDataDir: string, userId: string, gameId: string): string {

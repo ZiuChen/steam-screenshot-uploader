@@ -17,7 +17,7 @@ import {
   copyImageAsJpeg,
   generateThumbnail,
 } from "../utils/image.ts";
-import { getFileModifiedTime, fileExists } from "../utils/fs.ts";
+import { getFileModifiedTime, fileExists, writeTextFile } from "../utils/fs.ts";
 
 export function isSupportedFormat(filename: string): boolean {
   const ext = extname(filename).toLowerCase().slice(1);
@@ -96,7 +96,9 @@ export async function uploadScreenshots(
   );
 
   if (!(await fileExists(vdfPath))) {
-    throw new Error(`VDF file not found: ${vdfPath}`);
+    // Initialize an empty screenshots.vdf for first-time use
+    const emptyVdfContent = '"screenshots"\n{\n\t"shortcutnames"\n\t{\n\t}\n}';
+    await writeTextFile(vdfPath, emptyVdfContent);
   }
 
   const vdf = await readVdf(vdfPath);

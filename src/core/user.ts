@@ -12,11 +12,8 @@ export async function discoverUsers(userDataDir: string): Promise<SteamUser[]> {
     // The "someId" is typically "760" for screenshots
     const someId = "760";
     const vdfPath = findVdfPath(userDataDir, userId);
-
-    if (vdfPath) {
-      const personalName = await resolveUserName(userDataDir, userId);
-      users.push({ userId, someId, personalName, vdfPath });
-    }
+    const personalName = await resolveUserName(userDataDir, userId);
+    users.push({ userId, someId, personalName, vdfPath });
   }
 
   return users;

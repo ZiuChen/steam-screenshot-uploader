@@ -110,6 +110,7 @@ export const uploadCommand = defineCommand({
 
       // 3. Resolve games
       const games = await resolveGames(
+        steam.steamDir,
         steam.userDataDir,
         selectedUser.userId,
         selectedUser.vdfPath,

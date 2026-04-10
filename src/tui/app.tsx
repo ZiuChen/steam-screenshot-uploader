@@ -54,7 +54,7 @@ function App({ customSteamDir }: { customSteamDir?: string }) {
       dispatch({ type: "SET", key: "selectedUser", value: users[0]! });
 
       dispatch({ type: "SET", key: "status", value: "Loading games..." });
-      const games = await resolveGames(steam.userDataDir, users[0]!.userId, users[0]!.vdfPath);
+      const games = await resolveGames(steam.steamDir, steam.userDataDir, users[0]!.userId, users[0]!.vdfPath);
       dispatch({ type: "SET", key: "games", value: games });
       if (games.length > 0) {
         dispatch({ type: "SET", key: "selectedGame", value: games[0]! });

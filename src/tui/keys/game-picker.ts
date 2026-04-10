@@ -72,7 +72,7 @@ export async function loadGamesForUser(
   steamDir: string,
   dispatch: (action: AppAction) => void,
 ) {
-  const games = await resolveGames(steamDir + "/userdata", user.userId, user.vdfPath);
+  const games = await resolveGames(steamDir, steamDir + "/userdata", user.userId, user.vdfPath);
   dispatch({ type: "SET", key: "games", value: games });
   if (games.length > 0) {
     dispatch({ type: "SET", key: "selectedGame", value: games[0]! });
