@@ -65,8 +65,8 @@ ssu start --user-id 123456789 --game-id 730
 | Option        | Description                          |
 | ------------- | ------------------------------------ |
 | `--steam-dir` | Path to Steam installation directory |
-| `--user-id`   | Pre-select a Steam user by ID       |
-| `--game-id`   | Pre-select a game by app ID         |
+| `--user-id`   | Pre-select a Steam user by ID        |
+| `--game-id`   | Pre-select a game by app ID          |
 
 ### `ssu upload` — Upload Wizard
 
@@ -92,13 +92,13 @@ Print the current version.
 
 ## Supported Image Formats
 
-| Format | Extensions        |
-| ------ | ----------------- |
-| JPEG   | `.jpg`, `.jpeg`   |
-| PNG    | `.png`            |
-| BMP    | `.bmp`            |
-| TIFF   | `.tif`, `.tiff`   |
-| WebP   | `.webp`           |
+| Format | Extensions      |
+| ------ | --------------- |
+| JPEG   | `.jpg`, `.jpeg` |
+| PNG    | `.png`          |
+| BMP    | `.bmp`          |
+| TIFF   | `.tif`, `.tiff` |
+| WebP   | `.webp`         |
 
 All formats are automatically converted to JPEG for Steam compatibility.
 
