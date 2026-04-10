@@ -21,7 +21,10 @@ export async function isSteamRunning(): Promise<boolean> {
   try {
     switch (p) {
       case "darwin": {
-        const { stdout } = await execAsync("pgrep -x steam_osx || pgrep -ix Steam");
+        // Check native macOS Steam, then CrossOver/Wine-based Steam (steam.exe via Wine or Menu Helper)
+        const { stdout } = await execAsync(
+          "pgrep -x steam_osx || pgrep -ix Steam || pgrep -if 'steam\\.exe' || pgrep -f 'CrossOver.*Menu Helper'",
+        );
         return stdout.trim().length > 0;
       }
       case "linux": {
