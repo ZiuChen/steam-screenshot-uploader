@@ -2,7 +2,7 @@
 
 [English](./README.md)
 
-一个跨平台的命令行工具，用于将自定义截图上传到 Steam 云端。灵感来源于 [SteaScree](https://github.com/nicoco007/SteaScree)。
+一个跨平台的命令行工具，用于将自定义截图上传到 Steam 云端。灵感来源于 [SteaScree](https://github.com/awthwathje/SteaScree)。
 
 ## 功能特性
 

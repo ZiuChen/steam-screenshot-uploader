@@ -2,7 +2,7 @@
 
 [中文文档](./README.zh-CN.md)
 
-A cross-platform CLI tool for uploading custom screenshots to Steam Cloud. Inspired by [SteaScree](https://github.com/nicoco007/SteaScree).
+A cross-platform CLI tool for uploading custom screenshots to Steam Cloud. Inspired by [SteaScree](https://github.com/awthwathje/SteaScree).
 
 ## Features
 
