@@ -1,6 +1,6 @@
 import { writeFile } from "node:fs/promises";
 import { Jimp } from "jimp";
-import { STEAM_MAX_SIDE, STEAM_MAX_PIXELS, THUMBNAIL_WIDTH } from "../core/types.ts";
+import { STEAM_MAX_SIDE, STEAM_MAX_PIXELS, THUMBNAIL_WIDTH } from "@/core/types.ts";
 
 export interface ImageMetadata {
   width: number;

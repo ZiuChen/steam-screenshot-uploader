@@ -1,10 +1,9 @@
 import { defineCommand } from "citty";
-import { detectSteamDir, isSteamRunning } from "../core/steam.ts";
-import { discoverUsers, formatUserDisplay } from "../core/user.ts";
-import { resolveGames, formatGameDisplay } from "../core/game.ts";
-import { prepareScreenshot, uploadScreenshots } from "../core/screenshot.ts";
-import { isSupportedFormat } from "../core/screenshot.ts";
-import type { SteamUser, SteamGame, Screenshot } from "../core/types.ts";
+import { detectSteamDir, isSteamRunning } from "@/core/steam.ts";
+import { discoverUsers, formatUserDisplay } from "@/core/user.ts";
+import { resolveGames, formatGameDisplay } from "@/core/game.ts";
+import { prepareScreenshot, uploadScreenshots, isSupportedFormat } from "@/core/screenshot.ts";
+import type { SteamUser, SteamGame, Screenshot } from "@/core/types.ts";
 import { basename, resolve } from "node:path";
 import { globSync } from "node:fs";
 import * as readline from "node:readline";

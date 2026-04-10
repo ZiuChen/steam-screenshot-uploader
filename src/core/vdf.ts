@@ -1,5 +1,5 @@
-import type { VdfFile, ScreenshotVdfEntry } from "./types.ts";
-import { readTextFile, writeTextFile, backupFile } from "../utils/fs.ts";
+import type { VdfFile, ScreenshotVdfEntry } from "@/core/types.ts";
+import { readTextFile, writeTextFile, backupFile } from "@/utils/fs.ts";
 import { stat } from "node:fs/promises";
 
 export async function readVdf(path: string): Promise<VdfFile> {

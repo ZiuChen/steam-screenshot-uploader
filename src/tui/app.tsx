@@ -7,19 +7,18 @@ import {
   AppDispatchContext,
   type AppState,
   type AppAction,
-} from "./store.ts";
-import { Header } from "./components/header.tsx";
-import { Footer } from "./components/footer.tsx";
-import { FileBrowser } from "./components/file-browser.tsx";
-import { SelectedList } from "./components/selected-list.tsx";
-import { GamePicker } from "./components/game-picker.tsx";
-import { UserPicker } from "./components/user-picker.tsx";
-import { detectSteamDir } from "../core/steam.ts";
-import { discoverUsers } from "../core/user.ts";
-import { resolveGames } from "../core/game.ts";
-import { prepareScreenshot, uploadScreenshots } from "../core/screenshot.ts";
-import { isSteamRunning } from "../core/steam.ts";
-import type { Screenshot } from "../core/types.ts";
+} from "@/tui/store.ts";
+import { Header } from "@/tui/components/header.tsx";
+import { Footer } from "@/tui/components/footer.tsx";
+import { FileBrowser } from "@/tui/components/file-browser.tsx";
+import { SelectedList } from "@/tui/components/selected-list.tsx";
+import { GamePicker } from "@/tui/components/game-picker.tsx";
+import { UserPicker } from "@/tui/components/user-picker.tsx";
+import { detectSteamDir, isSteamRunning } from "@/core/steam.ts";
+import { discoverUsers } from "@/core/user.ts";
+import { resolveGames } from "@/core/game.ts";
+import { prepareScreenshot, uploadScreenshots } from "@/core/screenshot.ts";
+import type { Screenshot } from "@/core/types.ts";
 
 function App({ customSteamDir }: { customSteamDir?: string }) {
   const [state, dispatch] = useReducer(appReducer, initialState);

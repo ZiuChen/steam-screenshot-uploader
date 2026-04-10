@@ -1,5 +1,5 @@
 import { Box, Text } from "ink";
-import { useAppState } from "../store.ts";
+import { useAppState } from "@/tui/store.ts";
 
 export function Header() {
   const state = useAppState();

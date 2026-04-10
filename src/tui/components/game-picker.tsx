@@ -1,6 +1,6 @@
 import { Box, Text, useInput } from "ink";
-import { useAppState, useAppDispatch, type AppState, type AppAction } from "../store.ts";
-import { resolveGames } from "../../core/game.ts";
+import { useAppState, useAppDispatch, type AppState, type AppAction } from "@/tui/store.ts";
+import { resolveGames } from "@/core/game.ts";
 
 export function getFilteredGames(state: AppState) {
   const term = state.gameSearchTerm.toLowerCase();

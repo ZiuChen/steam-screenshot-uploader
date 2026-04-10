@@ -1,8 +1,8 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import type { SteamUser } from "./types.ts";
-import { listUserDirs, findVdfPath } from "./steam.ts";
-import { readTextFile } from "../utils/fs.ts";
+import type { SteamUser } from "@/core/types.ts";
+import { listUserDirs, findVdfPath } from "@/core/steam.ts";
+import { readTextFile } from "@/utils/fs.ts";
 
 export async function discoverUsers(userDataDir: string): Promise<SteamUser[]> {
   const userDirs = listUserDirs(userDataDir);

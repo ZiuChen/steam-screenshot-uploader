@@ -1,8 +1,8 @@
 import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { readdir, readFile } from "node:fs/promises";
-import type { SteamGame } from "./types.ts";
-import { readVdf } from "./vdf.ts";
+import type { SteamGame } from "@/core/types.ts";
+import { readVdf } from "@/core/vdf.ts";
 
 /**
  * Parse Steam's binary appinfo.vdf cache file to extract appid -> name mappings.

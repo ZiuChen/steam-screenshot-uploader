@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { Box, Text, useInput, useStdout } from "ink";
-import { useAppState, useAppDispatch, type AppState, type AppAction } from "../store.ts";
+import { useAppState, useAppDispatch, type AppState, type AppAction } from "@/tui/store.ts";
 import { readdirSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
-import { isSupportedFormat } from "../../core/screenshot.ts";
-import { formatFileSize } from "../../utils/fs.ts";
-import type { FileEntry } from "../../core/types.ts";
+import { isSupportedFormat } from "@/core/screenshot.ts";
+import { formatFileSize } from "@/utils/fs.ts";
+import type { FileEntry } from "@/core/types.ts";
 
 export function loadDirectory(dirPath: string, selectedFiles: FileEntry[]): FileEntry[] {
   try {

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vite-plus/test";
-import { isImageTooLarge } from "../../src/utils/image.ts";
+import { isImageTooLarge } from "@/utils/image.ts";
 
 describe("image utils", () => {
   test("isImageTooLarge", () => {

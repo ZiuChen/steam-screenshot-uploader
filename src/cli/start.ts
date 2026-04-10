@@ -14,7 +14,7 @@ export const startCommand = defineCommand({
   },
   async run({ args }) {
     // Dynamic import to avoid loading TUI deps when not needed
-    const { launchTui } = await import("../tui/app.tsx");
+    const { launchTui } = await import("@/tui/app.tsx");
     launchTui(args["steam-dir"]);
   },
 });

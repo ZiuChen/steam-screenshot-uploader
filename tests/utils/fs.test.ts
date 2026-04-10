@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vite-plus/test";
-import { formatFileSize } from "../../src/utils/fs.ts";
+import { formatFileSize } from "@/utils/fs.ts";
 
 describe("fs utils", () => {
   test("formatFileSize", () => {

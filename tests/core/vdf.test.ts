@@ -5,7 +5,7 @@ import {
   appendScreenshotEntry,
   getLastEntryNumber,
   hasScreenshotEntry,
-} from "../../src/core/vdf.ts";
+} from "@/core/vdf.ts";
 
 describe("VDF parser", () => {
   const sampleVdf = [

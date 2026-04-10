@@ -1,23 +1,23 @@
 import { mkdir } from "node:fs/promises";
 import { join, extname } from "node:path";
-import type { Screenshot, UploadOptions, ScreenshotVdfEntry } from "./types.ts";
-import { SUPPORTED_FORMATS, STEAM_MAX_SIDE, STEAM_MAX_PIXELS } from "./types.ts";
-import { getScreenshotsDir, getThumbnailsDir } from "./steam.ts";
+import type { Screenshot, UploadOptions, ScreenshotVdfEntry } from "@/core/types.ts";
+import { SUPPORTED_FORMATS, STEAM_MAX_SIDE, STEAM_MAX_PIXELS } from "@/core/types.ts";
+import { getScreenshotsDir, getThumbnailsDir } from "@/core/steam.ts";
 import {
   readVdf,
   writeVdf,
   appendScreenshotEntry,
   getLastEntryNumber,
   hasScreenshotEntry,
-} from "./vdf.ts";
+} from "@/core/vdf.ts";
 import {
   getImageMetadata,
   validateImage,
   isImageTooLarge,
   copyImageAsJpeg,
   generateThumbnail,
-} from "../utils/image.ts";
-import { getFileModifiedTime, fileExists, writeTextFile } from "../utils/fs.ts";
+} from "@/utils/image.ts";
+import { getFileModifiedTime, fileExists, writeTextFile } from "@/utils/fs.ts";
 
 export function isSupportedFormat(filename: string): boolean {
   const ext = extname(filename).toLowerCase().slice(1);

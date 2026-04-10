@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vite-plus/test";
-import { generateFilename, isSupportedFormat } from "../../src/core/screenshot.ts";
+import { generateFilename, isSupportedFormat } from "@/core/screenshot.ts";
 
 describe("screenshot utils", () => {
   test("isSupportedFormat", () => {

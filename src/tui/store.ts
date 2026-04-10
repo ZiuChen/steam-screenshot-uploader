@@ -1,5 +1,5 @@
 import { createContext, useContext, type Dispatch } from "react";
-import type { SteamUser, SteamGame, FileEntry } from "../core/types.ts";
+import type { SteamUser, SteamGame, FileEntry } from "@/core/types.ts";
 
 export interface AppState {
   steamDir: string | null;

@@ -1,6 +1,6 @@
 import { Box, Text, useInput } from "ink";
-import { useAppState, useAppDispatch } from "../store.ts";
-import { loadGamesForUser } from "./game-picker.tsx";
+import { useAppState, useAppDispatch } from "@/tui/store.ts";
+import { loadGamesForUser } from "@/tui/components/game-picker.tsx";
 
 export function UserPicker() {
   const state = useAppState();

@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Box, Text, useInput, useStdout } from "ink";
-import { useAppState, useAppDispatch } from "../store.ts";
-import { formatFileSize } from "../../utils/fs.ts";
-import { handleSelectedRemove } from "./file-browser.tsx";
+import { useAppState, useAppDispatch } from "@/tui/store.ts";
+import { formatFileSize } from "@/utils/fs.ts";
+import { handleSelectedRemove } from "@/tui/components/file-browser.tsx";
 
 export function SelectedList() {
   const state = useAppState();
