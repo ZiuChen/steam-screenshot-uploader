@@ -1,14 +1,43 @@
 import { useEffect, useMemo, useState } from "react";
-import { Box, Text, useStdout } from "ink";
-import { useAppState } from "../store.ts";
+import { Box, Text, useInput, useStdout } from "ink";
+import { useAppState, useAppDispatch } from "../store.ts";
 import { formatFileSize } from "../../utils/fs.ts";
+import { handleSelectedRemove } from "./file-browser.tsx";
 
 export function SelectedList() {
   const state = useAppState();
+  const dispatch = useAppDispatch();
   const { stdout } = useStdout();
   const [scrollOffset, setScrollOffset] = useState(0);
 
   const maxVisibleRows = Math.max(3, (stdout?.rows ?? 24) - 10);
+
+  useInput(
+    (input, key) => {
+      if (key.upArrow || input === "k") {
+        dispatch({
+          type: "SET",
+          key: "selectedFocusIndex",
+          value: Math.max(0, state.selectedFocusIndex - 1),
+        });
+        return;
+      }
+      if (key.downArrow || input === "j") {
+        dispatch({
+          type: "SET",
+          key: "selectedFocusIndex",
+          value: Math.min(state.selectedFiles.length - 1, state.selectedFocusIndex + 1),
+        });
+        return;
+      }
+      if (key.return || key.backspace || key.delete) {
+        handleSelectedRemove(state, dispatch);
+      }
+    },
+    {
+      isActive: state.activePanel === "selected" && !state.showGamePicker && !state.showUserPicker,
+    },
+  );
 
   // Keep focused item in view
   useEffect(() => {

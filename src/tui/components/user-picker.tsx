@@ -1,8 +1,52 @@
-import { Box, Text } from "ink";
-import { useAppState } from "../store.ts";
+import { Box, Text, useInput } from "ink";
+import { useAppState, useAppDispatch } from "../store.ts";
+import { loadGamesForUser } from "./game-picker.tsx";
 
 export function UserPicker() {
   const state = useAppState();
+  const dispatch = useAppDispatch();
+
+  useInput(
+    (input, key) => {
+      if (key.escape) {
+        dispatch({ type: "SET", key: "showUserPicker", value: false });
+        return;
+      }
+      if (key.upArrow || input === "k") {
+        dispatch({
+          type: "SET",
+          key: "userPickerFocusIndex",
+          value: Math.max(0, state.userPickerFocusIndex - 1),
+        });
+        return;
+      }
+      if (key.downArrow || input === "j") {
+        dispatch({
+          type: "SET",
+          key: "userPickerFocusIndex",
+          value: Math.min(state.users.length - 1, state.userPickerFocusIndex + 1),
+        });
+        return;
+      }
+      if (key.return) {
+        const user = state.users[state.userPickerFocusIndex];
+        if (user) {
+          dispatch({
+            type: "MERGE",
+            patch: {
+              selectedUser: user,
+              showUserPicker: false,
+              status: `User: ${user.userId} - ${user.personalName}`,
+            },
+          });
+          if (state.steamDir) {
+            void loadGamesForUser(user, state.steamDir, dispatch);
+          }
+        }
+      }
+    },
+    { isActive: state.showUserPicker },
+  );
 
   if (!state.showUserPicker) return null;
 

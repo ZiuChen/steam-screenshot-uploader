@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Box, Text, useStdout } from "ink";
+import { Box, Text, useInput, useStdout } from "ink";
 import { useAppState, useAppDispatch, type AppState, type AppAction } from "../store.ts";
 import { readdirSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -130,6 +130,47 @@ export function FileBrowser() {
 
   // Reserve rows for header, footer, borders, title
   const maxVisibleRows = Math.max(3, (stdout?.rows ?? 24) - 10);
+
+  useInput(
+    (input, key) => {
+      if (key.upArrow || input === "k") {
+        dispatch({
+          type: "SET",
+          key: "browserFocusIndex",
+          value: Math.max(0, state.browserFocusIndex - 1),
+        });
+        return;
+      }
+      if (key.downArrow || input === "j") {
+        dispatch({
+          type: "SET",
+          key: "browserFocusIndex",
+          value: Math.min(state.files.length - 1, state.browserFocusIndex + 1),
+        });
+        return;
+      }
+      if (key.return) {
+        handleBrowserSelect(state, dispatch);
+        return;
+      }
+      if (key.leftArrow) {
+        const parentDir = state.files.find((f) => f.name === "..");
+        if (parentDir) {
+          dispatch({ type: "MERGE", patch: { currentDir: parentDir.path, browserFocusIndex: 0 } });
+        }
+        return;
+      }
+      if (key.rightArrow) {
+        const file = state.files[state.browserFocusIndex];
+        if (file?.name.startsWith("📂")) {
+          dispatch({ type: "MERGE", patch: { currentDir: file.path, browserFocusIndex: 0 } });
+        }
+      }
+    },
+    {
+      isActive: state.activePanel === "browser" && !state.showGamePicker && !state.showUserPicker,
+    },
+  );
 
   useEffect(() => {
     const files = loadDirectory(state.currentDir, state.selectedFiles);

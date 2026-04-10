@@ -216,7 +216,8 @@ export async function resolveGames(
     const apiName = apiGames.get(appId);
     const shortcutName = shortcuts.get(appId);
     const isShortcut = !installedName && !cachedName && !apiName && !!shortcutName;
-    const name = installedName ?? cachedName ?? apiName ?? shortcutName ?? `Unknown Game (${appId})`;
+    const name =
+      installedName ?? cachedName ?? apiName ?? shortcutName ?? `Unknown Game (${appId})`;
 
     return { appId, name, isShortcut };
   });

@@ -48,16 +48,16 @@ ssu start --steam-dir /path/to/steam
 
 #### TUI Keybindings
 
-| Key | Action |
-|-----|--------|
-| `Tab` | Switch between file browser and selected list |
-| `↑/↓` | Navigate items |
-| `Enter/Space` | Select file / Remove from selected |
-| `Backspace` | Go to parent directory |
-| `g` | Open game picker |
-| `p` | Open user picker |
-| `u` | Upload selected screenshots |
-| `q` | Quit |
+| Key           | Action                                        |
+| ------------- | --------------------------------------------- |
+| `Tab`         | Switch between file browser and selected list |
+| `↑/↓`         | Navigate items                                |
+| `Enter/Space` | Select file / Remove from selected            |
+| `Backspace`   | Go to parent directory                        |
+| `g`           | Open game picker                              |
+| `p`           | Open user picker                              |
+| `u`           | Upload selected screenshots                   |
+| `q`           | Quit                                          |
 
 ### CLI Batch Upload
 
@@ -69,12 +69,12 @@ ssu upload --images "./screenshots/*.jpg" --user 0 --game 0
 
 #### Options
 
-| Option | Description |
-|--------|-------------|
-| `--steam-dir` | Path to Steam installation directory |
-| `--images` | Glob pattern for image files to upload |
-| `--user` | User index (0-based) |
-| `--game` | Game index (0-based) |
+| Option        | Description                            |
+| ------------- | -------------------------------------- |
+| `--steam-dir` | Path to Steam installation directory   |
+| `--images`    | Glob pattern for image files to upload |
+| `--user`      | User index (0-based)                   |
+| `--game`      | Game index (0-based)                   |
 
 ### Version
 
