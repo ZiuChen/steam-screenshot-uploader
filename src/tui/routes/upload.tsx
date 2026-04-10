@@ -59,6 +59,13 @@ export function UploadScreen() {
       .slice(0, 50);
   }, [state.games, searchTerm]);
 
+  // Ctrl+C handler — always active
+  useInput((input, key) => {
+    if (key.ctrl && input === "c") {
+      process.exit(0);
+    }
+  });
+
   // Loading/error keys
   useInput(
     (input) => {

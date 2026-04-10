@@ -18,7 +18,7 @@ export function Footer() {
           <Text color="yellow">[↑↓/jk]</Text> <Text color="gray">Navigate</Text>
         </Text>
         <Text>
-          <Text color="yellow">[Enter]</Text> <Text color="gray">Select</Text>
+          <Text color="yellow">[Space]</Text> <Text color="gray">Select</Text>
         </Text>
         <Text>
           <Text color="yellow">[Tab]</Text> <Text color="gray">Panel</Text>
@@ -33,10 +33,10 @@ export function Footer() {
           <Text color="yellow">[p]</Text> <Text color="gray">User</Text>
         </Text>
         <Text>
-          <Text color="yellow">[u]</Text> <Text color="gray">Upload</Text>
+          <Text color="yellow">[Enter]</Text> <Text color="gray">Upload</Text>
         </Text>
         <Text>
-          <Text color="yellow">[q]</Text> <Text color="gray">Quit</Text>
+          <Text color="yellow">[Ctrl+C]</Text> <Text color="gray">Quit</Text>
         </Text>
       </Box>
       <Text color={state.isUploading ? "yellow" : "gray"}>

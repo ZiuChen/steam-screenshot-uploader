@@ -103,5 +103,5 @@ function App({ options }: { options: LaunchOptions }) {
 }
 
 export function launchTui(options: LaunchOptions = {}) {
-  render(<App options={options} />);
+  render(<App options={options} />, { exitOnCtrlC: false });
 }

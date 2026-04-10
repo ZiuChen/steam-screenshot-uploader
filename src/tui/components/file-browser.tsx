@@ -149,8 +149,12 @@ export function FileBrowser() {
         });
         return;
       }
-      if (key.return) {
-        handleBrowserSelect(state, dispatch);
+      if (input === " ") {
+        // Space toggles file selection (skip directories)
+        const file = state.files[state.browserFocusIndex];
+        if (file && file.name !== ".." && !file.name.startsWith("📂")) {
+          handleBrowserSelect(state, dispatch);
+        }
         return;
       }
       if (key.leftArrow) {

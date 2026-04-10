@@ -30,7 +30,7 @@ export function SelectedList() {
         });
         return;
       }
-      if (key.return || key.backspace || key.delete) {
+      if (input === " " || key.backspace || key.delete) {
         handleSelectedRemove(state, dispatch);
       }
     },

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useInput } from "ink";
 import { useAppState, useAppDispatch, type AppState, type AppAction } from "@/tui/store.ts";
 import { Header } from "@/tui/components/header.tsx";
@@ -13,12 +14,35 @@ import type { Screenshot } from "@/core/types.ts";
 export function MainScreen() {
   const state = useAppState();
   const dispatch = useAppDispatch();
+  const [ctrlCPending, setCtrlCPending] = useState(false);
+
+  // Auto-clear Ctrl+C pending state after 3 seconds
+  useEffect(() => {
+    if (!ctrlCPending) return;
+    const timer = setTimeout(() => {
+      setCtrlCPending(false);
+      dispatch({ type: "SET", key: "status", value: "Ready" });
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [ctrlCPending]);
+
+  // Ctrl+C handler — always active (even when pickers are open)
+  useInput((input, key) => {
+    if (key.ctrl && input === "c") {
+      if (ctrlCPending) {
+        process.exit(0);
+      }
+      setCtrlCPending(true);
+      dispatch({ type: "SET", key: "status", value: "Press Ctrl+C again to exit" });
+      return;
+    }
+    if (ctrlCPending) {
+      setCtrlCPending(false);
+    }
+  });
 
   useInput(
     (input, key) => {
-      if (input === "q") {
-        process.exit(0);
-      }
       if (key.tab) {
         dispatch({
           type: "SET",
@@ -38,7 +62,7 @@ export function MainScreen() {
         dispatch({ type: "MERGE", patch: { showUserPicker: true, userPickerFocusIndex: 0 } });
         return;
       }
-      if (input === "u") {
+      if (key.return) {
         void handleUpload(state, dispatch);
       }
     },
