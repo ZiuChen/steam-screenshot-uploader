@@ -39,7 +39,8 @@
     "citty": "^0.2.2",
     "ink": "^7.0.0",
     "jimp": "^1.6.1",
-    "react": "^19.2.5"
+    "react": "^19.2.5",
+    "react-router": "^7.14.0"
   },
   "devDependencies": {
     "@types/node": "^25.5.0",
