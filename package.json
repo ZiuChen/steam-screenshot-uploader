@@ -1,6 +1,6 @@
 {
   "name": "steam-screenshot-uploader",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Upload custom screenshots to Steam Cloud via CLI",
   "keywords": [
     "cli",
